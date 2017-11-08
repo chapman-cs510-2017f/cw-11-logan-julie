@@ -1,8 +1,11 @@
 # CS510 CW 11
 
-**Author(s):** **CHANGEME**
+Name: Julie Gardner-Hoag, Logan Gantner<br> 
+Student ID: 2299636, 2307470 <br>
+Email: gardnerh@chapman.edu, gantner@chapman.edu <br>
+Course: CS510 Fall 2017 <br>
 
-[![Build Status](https://travis-ci.org/chapman-cs510-2017f/cw-11-YOURNAME.svg?branch=master)](https://travis-ci.org/chapman-cs510-2017f/cw-11-YOURNAME)
+[![Build Status](https://travis-ci.org/chapman-cs510-2017f/cw-11-logan-julie.svg?branch=master)](https://travis-ci.org/chapman-cs510-2017f/cw-11-logan-julie)
 
 ## Specification
 
@@ -41,4 +44,4 @@ I pledge that all the work in this repository is my own with only the following 
 
 Signed,
 
-**YOURNAME**
+Julie Gardner-Hoag, Logan Gantner
