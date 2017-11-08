@@ -54,7 +54,7 @@ void print_svalue(SVALUE v){
 
 void print_stack(STACK s){
   STACK temp = s;
-  while (&temp != NULL){
+  while (temp != NULL){
       SVALUE v = (temp)->data;
       print_svalue(v);
       temp = (temp)->head;
