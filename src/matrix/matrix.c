@@ -31,6 +31,7 @@ void delete_matrix(MATRIX m) {
 }
 
 void mset(MATRIX *m, const MINDEX row, const MINDEX col, const MVALUE v) {
+  /* Sets the value of the matrix at a specified row and column to value v */
   if (row < 0 || col < 0 || row >= m->rows || col >= m->cols) {
     fprintf(stderr, "ERROR: Indexing matrix outside bounds\n");
     return;
@@ -65,9 +66,11 @@ void mset(MATRIX *m, const MINDEX row, const MINDEX col, const MVALUE v) {
 }
 
 MVALUE mget(const MATRIX *m, const MINDEX row, const MINDEX col) {
-  /*
-   * CODE GOES HERE
-   */
+  if (row < 0 || col < 0 || row >= m->rows || col >= m->cols) {
+    fprintf(stderr, "ERROR: Indexing matrix outside bounds\n");
+    return 0;
+  }
+  return *(m->mat + (m->cols * row) + col);
 }
 
 // Abstraction layer in case implementation of VALUE changes later
@@ -79,13 +82,46 @@ void print_matrix(const MATRIX *m) {
   MINDEX maxr, maxc;
   maxr = m->rows;
   maxc = m->cols;
+  MVALUE val;
 
   // print values of matrix separated by tabs
   // with each row on a separate line
   printf("Matrix (rows: %d, cols: %d) \n", maxr, maxc);
-  /* 
-   * CODE GOES HERE
-   */
+  for (MINDEX i=0; i<maxr; ++i) {
+    for (MINDEX j=0; j<maxc; ++j) {
+      val = mget(m, i, j);
+      printf("%Lf\t", val);
+    }
+    printf("\n");
+  }
 }
 
 // Implementation for add_matrix goes below
+
+
+MATRIX add_matrix(const MATRIX *m1, const MATRIX *m2) {
+  MINDEX maxr, maxc;
+  maxr = m1->rows;
+  maxc = m1->cols;
+  MVALUE v1;
+  MVALUE v2;
+  MATRIX m = new_matrix(maxr, maxc);
+
+  for (MINDEX i=0; i<maxr; ++i) {
+    for (MINDEX j=0; j<maxc; ++j) {
+      v1 = mget(m1, i, j);
+      v2 = mget(m2, i, j);
+      mset(&m, i, j, v1+v2);
+    }
+  }
+  return m;
+}
+
+
+
+
+
+
+
+
+
