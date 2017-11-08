@@ -87,8 +87,9 @@ void print_matrix(const MATRIX *m) {
   // print values of matrix separated by tabs
   // with each row on a separate line
   printf("Matrix (rows: %d, cols: %d) \n", maxr, maxc);
-  for (MINDEX i=0; i<maxr; ++i) {
-    for (MINDEX j=0; j<maxc; ++j) {
+  MINDEX i, j;
+  for (i=0; i<maxr; ++i) {
+    for (j=0; j<maxc; ++j) {
       val = mget(m, i, j);
       printf("%Lf\t", val);
     }
@@ -107,8 +108,9 @@ MATRIX add_matrix(const MATRIX *m1, const MATRIX *m2) {
   MVALUE v2;
   MATRIX m = new_matrix(maxr, maxc);
 
-  for (MINDEX i=0; i<maxr; ++i) {
-    for (MINDEX j=0; j<maxc; ++j) {
+  MINDEX i, j;
+  for (i=0; i<maxr; ++i) {
+    for (j=0; j<maxc; ++j) {
       v1 = mget(m1, i, j);
       v2 = mget(m2, i, j);
       mset(&m, i, j, v1+v2);
